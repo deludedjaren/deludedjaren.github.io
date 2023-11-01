@@ -2,4 +2,8 @@
 title: "About"
 ---
 
-Jaren
+## Introduction
+
+I am Jaren, year 3 business administration student. My academic interests lie in macroeconomics and studying human behavior.
+
+<https://github.com/deludedjaren/Jaren>
