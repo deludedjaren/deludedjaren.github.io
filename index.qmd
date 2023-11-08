@@ -2,6 +2,7 @@
 title: "proj"
 ---
 
-This is a Quarto website.
+Home Page
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+1.  I want to analyse how LFPR of males and females have changed over time in India
+2.  I want to analyse how education levels differ for males and females in India
