@@ -55,11 +55,13 @@ The main variables that I will likely focus on will be labor force participation
 
 ### 2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,
 
-Try to use Shiny, although I am not very sure how to do so.
+I used ggplot2 to create some visualizations on how female and male LFPR have altered over time.
+
+I want to use Shiny, although I am not very sure how to do so.
 
 ### 3. What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)
 
-I will update this as my website develops
+I will update this as my website develops.
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
@@ -69,3 +71,6 @@ I struggle to incorporate Shiny into my website.
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
+Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tinying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.
+
+That being said, given that this is the first time I am creating a website, I remained unsure on how to design it in a way that looks aesthetic. I also struggled to come up with a coherent story which conveyed the main issue that my website is trying to address. I am still in the process of coming up with questions which would allow me to answer the issue of how gender inequality has evolved over time in India.
