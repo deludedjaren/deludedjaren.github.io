@@ -1,5 +1,5 @@
 ---
-title: "proj"
+title: "Is Gender Inequality worsening in India?"
 ---
 
 Home Page
@@ -7,7 +7,7 @@ Home Page
 1.  I want to analyse how LFPR of males and females have changed over time in India
 2.  I want to analyse how education levels differ for males and females in India
 
-```{r}
+```{r, eval=TRUE,echo=FALSE}
 # Load required libraries
 library(shiny)
 library(ggplot2)
@@ -51,7 +51,7 @@ shinyApp(ui, server)
 
 ```
 
-```{r}
+```{r, eval=TRUE,echo=FALSE}
 
 # Load your data 
 data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
@@ -67,3 +67,24 @@ ggplot(data, aes(x = X)) +
   ) +
   theme_minimal()
 ```
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data 
+data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
+
+# Create a ggplot2 line plot
+ggplot(data, aes(x = X, y = Labour.Force..Female....of.Total.Labour.Force)) +
+  geom_line() +
+  labs(
+    title = "Trends in Labour Force Gender Dynamics",
+    x = "Year",
+    y = "Proportion of Female Workers in Labour Force (%)"
+  ) +
+  theme_minimal()
+
+```
+
+
+x <- data$X[!is.na(data$renamed)]
+y <- data$renamed[!is.na(data$renamed)]
+ggplot(data_new,aes(x=x,y=y)) + geom_point() + geom_line()
