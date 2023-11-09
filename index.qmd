@@ -6,3 +6,64 @@ Home Page
 
 1.  I want to analyse how LFPR of males and females have changed over time in India
 2.  I want to analyse how education levels differ for males and females in India
+
+```{r}
+# Load required libraries
+library(shiny)
+library(ggplot2)
+library(dplyr)
+
+# Load your data 
+data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
+
+# Define the user interface
+ui <- fluidPage(
+  titlePanel("Gender Differences in Labor Force Participation in India"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("year", "Select Year", choices = unique(data$X)),
+      selectInput("age_group", "Select Age Group", choices = unique(data$Male.LFPR))
+    ),
+    mainPanel(
+      plotOutput("gender_plot")
+    )
+  )
+)
+
+# Define the server logic
+server <- function(input, output) {
+  filtered_data <- reactive({
+    data %>%
+      filter(Year == input$X, Age_Group == input$Male.LFPR)
+  })
+  
+  output$gender_plot <- renderPlot({
+    ggplot(filtered_data(), aes(x = X, y = Male.LFPR)) +
+      geom_bar(stat = "identity", position = "dodge", fill = "blue") +
+      labs(title = paste("Labor Force Participation Rate in", input$year, "for Age Group", input$age_group),
+           x = "Gender", y = "Labor Force Participation Rate (%)") +
+      theme_minimal()
+  })
+}
+
+# Run the Shiny app
+shinyApp(ui, server)
+
+```
+
+```{r}
+
+# Load your data 
+data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
+
+# Create a ggplot2 line plot
+ggplot(data, aes(x = X)) +
+  geom_line(aes(y = Male.LFPR, color = "Male Labor Force Participation Rate")) + 
+  geom_line(aes(y = Female.LFPR, color = "Female Labor Force Participation Rate")) +
+  labs(
+    title = "Trends in Labor Force Participation Rates in India",
+    x = "Year",
+    y = "Labor Force Participation Rate (%)"
+  ) +
+  theme_minimal()
+```
