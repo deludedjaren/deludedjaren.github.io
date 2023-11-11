@@ -6,52 +6,21 @@ Home Page
 
 1.  I want to analyse how LFPR of males and females have changed over time in India
 2.  I want to analyse how education levels differ for males and females in India
+3. Consider the implications of gender inequality
+4. Causes / indicators
+5. Solutions?
+6. How to make it interactive?
+
+
+THINK OF: 1. What questions can I ask myself that would help answer the issue of gender inequality in India?
+
+Ideas, 1. How has Labour Force Participation Rate evolved for Males and Females in India over the last 30 years? What does this data tell me? 2. What is the proportion of the labour force that is females? What does this imply?
 
 ```{r, eval=TRUE,echo=FALSE}
-# Load required libraries
+
 library(shiny)
 library(ggplot2)
 library(dplyr)
-
-# Load your data 
-data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
-
-# Define the user interface
-ui <- fluidPage(
-  titlePanel("Gender Differences in Labor Force Participation in India"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput("year", "Select Year", choices = unique(data$X)),
-      selectInput("age_group", "Select Age Group", choices = unique(data$Male.LFPR))
-    ),
-    mainPanel(
-      plotOutput("gender_plot")
-    )
-  )
-)
-
-# Define the server logic
-server <- function(input, output) {
-  filtered_data <- reactive({
-    data %>%
-      filter(Year == input$X, Age_Group == input$Male.LFPR)
-  })
-  
-  output$gender_plot <- renderPlot({
-    ggplot(filtered_data(), aes(x = X, y = Male.LFPR)) +
-      geom_bar(stat = "identity", position = "dodge", fill = "blue") +
-      labs(title = paste("Labor Force Participation Rate in", input$year, "for Age Group", input$age_group),
-           x = "Gender", y = "Labor Force Participation Rate (%)") +
-      theme_minimal()
-  })
-}
-
-# Run the Shiny app
-shinyApp(ui, server)
-
-```
-
-```{r, eval=TRUE,echo=FALSE}
 
 # Load your data 
 data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
@@ -67,6 +36,7 @@ ggplot(data, aes(x = X)) +
   ) +
   theme_minimal()
 ```
+
 ```{r, eval=TRUE,echo=FALSE}
 
 # Load your data 
@@ -84,7 +54,359 @@ ggplot(data, aes(x = X, y = Labour.Force..Female....of.Total.Labour.Force)) +
 
 ```
 
+```{r, eval=TRUE,echo=FALSE}
 
-x <- data$X[!is.na(data$renamed)]
-y <- data$renamed[!is.na(data$renamed)]
-ggplot(data_new,aes(x=x,y=y)) + geom_point() + geom_line()
+# Load your data 
+dataII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data II.csv")
+
+# Create a ggplot2 line plot
+ggplot(dataII, aes(x = Year)) +
+  geom_line(aes(y = MaleYouthNotInEET, color = "Male Youth not in Education, Employment or Training")) + 
+  geom_line(aes(y = FemaleYouthNotInEET, color = "Female Youth not in Education, Employment or Training")) +
+  labs(
+    title = "Proportion of Youth not in Education, Employment or Training",
+    x = "Year",
+    y = "Youth not in Education, Employment or Training (%)"
+  ) +
+  theme_minimal()
+
+
+```
+
+
+
+```{r}
+
+# Using Shiny to show difference in a given year
+
+# Install and load required packages
+if (!requireNamespace("shiny", quietly = TRUE)) {
+  install.packages("shiny")
+}
+library(shiny)
+library(ggplot2)
+
+# Load your data
+dataII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data II.csv")
+
+# Define UI for the Shiny app
+ui <- fluidPage(
+  titlePanel("Proportion of Youth not in Education, Employment, or Training"),
+  sidebarLayout(
+    sidebarPanel(
+      numericInput("selectedYear", "Select Year:", min(dataII$Year), max(dataII$Year), min(dataII$Year)),
+      actionButton("calculateButton", "Calculate Difference"),
+      hr(),
+      h4("Difference:"),
+      textOutput("genderDifference")
+    ),
+    mainPanel(
+      plotOutput("linePlot")
+    )
+  )
+)
+
+# Define server logic for the Shiny app
+server <- function(input, output) {
+  output$linePlot <- renderPlot({
+    # Create a ggplot2 line plot
+    ggplot(dataII, aes(x = Year)) +
+      geom_line(aes(y = MaleYouthNotInEET, color = "Male Youth not in Education, Employment or Training")) + 
+      geom_line(aes(y = FemaleYouthNotInEET, color = "Female Youth not in Education, Employment or Training")) +
+      labs(
+        title = "Proportion of Youth not in Education, Employment or Training",
+        x = "Year",
+        y = "Youth not in Education, Employment or Training (%)"
+      ) +
+      theme_minimal()
+  })
+
+  # Calculate difference based on user input
+  observeEvent(input$calculateButton, {
+    selected_year <- input$selectedYear
+
+    # Filter data based on user input
+    filtered_data <- dataII[dataII$Year == selected_year, ]
+
+    # Calculate the difference between male and female youth not in EET
+    gender_diff <- filtered_data$MaleYouthNotInEET - filtered_data$FemaleYouthNotInEET
+
+    # Update output value
+    output$genderDifference <- renderText(paste("Difference: ", round(mean(gender_diff), 2)))
+  })
+}
+
+# Run the Shiny app
+shinyApp(ui, server)
+
+
+```
+
+
+```{r}
+
+# Install and load required packages
+if (!requireNamespace("shiny", quietly = TRUE)) {
+  install.packages("shiny")
+}
+library(shiny)
+library(ggplot2)
+
+# Load your data
+dataII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data II.csv")
+
+# Define UI for the Shiny app
+ui <- fluidPage(
+  titlePanel("Proportion of Youth not in Education, Employment, or Training"),
+  sidebarLayout(
+    sidebarPanel(
+      numericInput("selectedYear", "Select Year:", min(dataII$Year), max(dataII$Year), min(dataII$Year)),
+      actionButton("calculateButton", "Calculate Difference"),
+      hr(),
+      h4("Difference:"),
+      textOutput("genderDifference")
+    ),
+    mainPanel(
+      plotOutput("linePlot")
+    )
+  )
+)
+
+# Define server logic for the Shiny app
+server <- function(input, output) {
+  output$linePlot <- renderPlot({
+    # Create a ggplot2 line plot
+    ggplot(dataII, aes(x = Year)) +
+      geom_line(aes(y = MaleYouthNotInEET, color = "Male Youth not in Education, Employment or Training")) + 
+      geom_line(aes(y = FemaleYouthNotInEET, color = "Female Youth not in Education, Employment or Training")) +
+      geom_vline(xintercept = input$selectedYear, linetype = "dashed", color = "black") +
+      labs(
+        title = "Proportion of Youth not in Education, Employment or Training",
+        x = "Year",
+        y = "Youth not in Education, Employment or Training (%)"
+      ) +
+      theme_minimal()
+  })
+
+  # Calculate difference based on user input
+  observeEvent(input$calculateButton, {
+    selected_year <- input$selectedYear
+
+    # Filter data based on user input
+    filtered_data <- dataII[dataII$Year == selected_year, ]
+
+    # Calculate the difference between male and female youth not in EET
+    gender_diff <- filtered_data$MaleYouthNotInEET - filtered_data$FemaleYouthNotInEET
+
+    # Update output value
+    output$genderDifference <- renderText(paste("Difference: ", round(mean(gender_diff), 2)))
+  })
+}
+
+# Run the Shiny app
+shinyApp(ui, server)
+
+
+```
+
+
+
+
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data 
+dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
+
+# Create a ggplot2 line plot
+ggplot(dataIII, aes(x = Year)) +
+  geom_line(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male Labour Force With Advanced Education")) +
+  geom_line(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male Labour Force With Intermediate Education")) +
+  geom_line(aes(y = MaleLabourForceWithBasicEdu, color = "Male Labour Force With Basic Education")) +
+  geom_line(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female Labour Force With Advanced Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female Labour Force With Intermediate Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithBasicEdu, color = "Female Labour Force With Basic Education")) +
+  labs(
+    title = "Comparison of Education Levels within Labour Force",
+    x = "Year",
+    y = "Proportion of Labour Force (%)"
+  ) +
+  theme_minimal()
+
+```
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data
+dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
+
+# Create a ggplot2 line plot with points and enhanced styling
+ggplot(dataIII, aes(x = Year)) +
+  geom_line(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education")) +
+  geom_line(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +
+  geom_line(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education")) +
+  geom_line(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education")) +
+  geom_point(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education")) +
+  geom_point(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +
+  geom_point(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education")) +
+  geom_point(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education")) +
+  geom_point(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education")) +
+  geom_point(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education")) +
+  labs(
+    title = "Comparison of Education Levels within Labour Force",
+    x = "Year",
+    y = "Proportion of Labour Force (%)",
+    color = "Education Level"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 8),
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.title = element_text(size = 10),
+    axis.text = element_text(size = 8)
+  )
+
+
+```
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data
+dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
+
+# Create a ggplot2 line plot with points and enhanced styling
+ggplot(dataIII, aes(x = Year)) +
+  geom_line(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education")) +
+  geom_line(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +
+  geom_line(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education")) +
+  geom_line(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education")) +
+  geom_point(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education"), size = 2) +
+  geom_point(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education"), size = 2) +
+  geom_point(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education"), size = 2) +
+  geom_point(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education"), size = 2) +
+  geom_point(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education"), size = 2) +
+  geom_point(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education"), size = 2) +
+ scale_color_manual(values = c("pink", "red", "purple", "darkgreen", "darkblue", "darkgrey")) +
+  labs(
+    title = "Comparison of Education Levels within Labour Force",
+    x = "Year",
+    y = "Proportion of Labour Force (%)",
+    color = "Education Level"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 8),
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10)
+  )
+
+
+```
+
+
+```{r}
+
+# Install and load required packages
+if (!requireNamespace("shiny", quietly = TRUE)) {
+  install.packages("shiny")
+}
+library(shiny)
+library(ggplot2)
+
+# Load your data
+dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
+
+# Define UI for the Shiny app
+ui <- fluidPage(
+  titlePanel("Interactive Comparison of Education Levels within Labour Force"),
+  sidebarLayout(
+    sidebarPanel(
+      numericInput("startYear", "Start Year:", min(dataIII$Year), max(dataIII$Year), min(dataIII$Year)),
+      numericInput("endYear", "End Year:", min(dataIII$Year), max(dataIII$Year), max(dataIII$Year)),
+      actionButton("calculateButton", "Calculate Averages and Differences"),
+      hr(),
+      h4("Averages:"),
+      textOutput("maleAverage"),
+      textOutput("femaleAverage"),
+      h4("Difference:"),
+      textOutput("difference")
+    ),
+    mainPanel(
+      plotOutput("linePlot")
+    )
+  )
+)
+
+# Define server logic for the Shiny app
+server <- function(input, output) {
+  output$linePlot <- renderPlot({
+    # Create a ggplot2 line plot with points and enhanced styling
+    ggplot(dataIII, aes(x = Year)) +
+      geom_line(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education")) +
+      geom_line(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +
+      geom_line(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education")) +
+      geom_line(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education")) + 
+      geom_line(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education")) + 
+      geom_line(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education")) +
+      geom_point(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education"), size = 2) +
+      geom_point(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education"), size = 2) +
+      geom_point(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education"), size = 2) +
+      geom_point(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education"), size = 2) +
+      geom_point(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education"), size = 2) +
+      geom_point(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education"), size = 2) +
+      scale_color_manual(values = c("pink", "red", "purple", "darkgreen", "darkblue", "darkgrey")) +
+      labs(
+        title = "Comparison of Education Levels within Labour Force",
+        x = "Year",
+        y = "Proportion of Labour Force (%)",
+        color = "Education Level"
+      ) +
+      theme_minimal() +
+      theme(
+        legend.position = "bottom",
+        legend.title = element_text(size = 10),
+        legend.text = element_text(size = 8),
+        plot.title = element_text(size = 14, face = "bold"),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 10)
+      )
+  })
+
+  # Calculate averages and differences based on user input
+  observeEvent(input$calculateButton, {
+    start_year <- input$startYear
+    end_year <- input$endYear
+
+    # Filter data based on user input
+    filtered_data <- dataIII[dataIII$Year >= start_year & dataIII$Year <= end_year, ]
+
+    # Calculate averages
+    male_avg <- mean(c(filtered_data$MaleLabourForceWithAdvancedEdu, 
+                       filtered_data$MaleLabourForceWithIntermediateEdu, 
+                       filtered_data$MaleLabourForceWithBasicEdu))
+    female_avg <- mean(c(filtered_data$FemaleLabourForceWithAdvancedEdu, 
+                         filtered_data$FemaleLabourForceWithIntermediateEdu, 
+                         filtered_data$FemaleLabourForceWithBasicEdu))
+
+    # Calculate difference
+    diff_avg <- male_avg - female_avg
+
+    # Update output values
+    output$maleAverage <- renderText(paste("Male Average: ", round(male_avg, 2)))
+    output$femaleAverage <- renderText(paste("Female Average: ", round(female_avg, 2)))
+    output$difference <- renderText(paste("Difference: ", round(diff_avg, 2)))
+  })
+}
+
+# Run the Shiny app
+shinyApp(ui, server)
+
+
+```
+

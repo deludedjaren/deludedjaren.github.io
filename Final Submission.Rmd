@@ -30,7 +30,6 @@ head(data)  # View the first few rows
 
 summary(data)
 
-
 ```
 
 ## Week 10
@@ -74,3 +73,15 @@ I struggle to incorporate Shiny into my website.
 Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tinying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.
 
 That being said, given that this is the first time I am creating a website, I remained unsure on how to design it in a way that looks aesthetic. I also struggled to come up with a coherent story which conveyed the main issue that my website is trying to address. I am still in the process of coming up with questions which would allow me to answer the issue of how gender inequality has evolved over time in India.
+
+## Final Submission
+
+### 1. What is the theme of your data story?
+
+### 2. Why is it important to address this question?
+
+### 3. Why do you think the data sources that you have curated can help you answer the question?
+
+### 4. What are the insights from the data and how are they depicted in plots?
+
+### 5. How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it?

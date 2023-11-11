@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jaren Ong">
+<meta name="dcterms.date" content="2023-11-11">
+
+<title>proj - W12 Submission</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">proj</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-9" id="toc-week-9" class="nav-link active" data-scroll-target="#week-9">Week 9</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-topic-that-you-have-finalized" id="toc-what-is-the-topic-that-you-have-finalized" class="nav-link" data-scroll-target="#what-is-the-topic-that-you-have-finalized">What is the topic that you have finalized?</a></li>
+  <li><a href="#what-are-the-data-sources-that-you-have-curated-so-far" id="toc-what-are-the-data-sources-that-you-have-curated-so-far" class="nav-link" data-scroll-target="#what-are-the-data-sources-that-you-have-curated-so-far">What are the data sources that you have curated so far?</a></li>
+  </ul></li>
+  <li><a href="#week-10" id="toc-week-10" class="nav-link" data-scroll-target="#week-10">Week 10</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-question-that-you-are-going-to-answer-answer-one-sentence-that-ends-with-a-question-mark-that-could-act-like-the-title-of-your-data-story" id="toc-what-is-the-question-that-you-are-going-to-answer-answer-one-sentence-that-ends-with-a-question-mark-that-could-act-like-the-title-of-your-data-story" class="nav-link" data-scroll-target="#what-is-the-question-that-you-are-going-to-answer-answer-one-sentence-that-ends-with-a-question-mark-that-could-act-like-the-title-of-your-data-story">What is the question that you are going to answer? (Answer: One sentence that ends with a question mark that could act like the title of your data story),</a></li>
+  <li><a href="#why-is-this-an-important-question-answer-3-sentences-each-of-which-has-some-evidence-e.g.-according-to-the-united-nations-to-justify-why-the-question-you-have-chosen-is-important" id="toc-why-is-this-an-important-question-answer-3-sentences-each-of-which-has-some-evidence-e.g.-according-to-the-united-nations-to-justify-why-the-question-you-have-chosen-is-important" class="nav-link" data-scroll-target="#why-is-this-an-important-question-answer-3-sentences-each-of-which-has-some-evidence-e.g.-according-to-the-united-nations-to-justify-why-the-question-you-have-chosen-is-important">Why is this an important question? (Answer: 3 sentences, each of which has some evidence, e.g., “According to the United Nations…” to justify why the question you have chosen is important),</a></li>
+  <li><a href="#which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use." id="toc-which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use." class="nav-link" data-scroll-target="#which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use.">Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use).</a></li>
+  </ul></li>
+  <li><a href="#week-11" id="toc-week-11" class="nav-link" data-scroll-target="#week-11">Week 11</a>
+  <ul class="collapse">
+  <li><a href="#list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question" id="toc-list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question" class="nav-link" data-scroll-target="#list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question">1. List the visualizations that you are going to use in your project (Answer: What are the variables that you are going to plot? How will it answer your larger question?),</a></li>
+  <li><a href="#how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive" id="toc-how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive" class="nav-link" data-scroll-target="#how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive">2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,</a></li>
+  <li><a href="#what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts" id="toc-what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts" class="nav-link" data-scroll-target="#what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts">3. What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)</a></li>
+  <li><a href="#include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them." id="toc-include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them." class="nav-link" data-scroll-target="#include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.">Include the challenges and errors that you faced and how you overcame them.</a></li>
+  </ul></li>
+  <li><a href="#week-12" id="toc-week-12" class="nav-link" data-scroll-target="#week-12">Week 12</a>
+  <ul class="collapse">
+  <li><a href="#include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1" id="toc-include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1" class="nav-link" data-scroll-target="#include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1">Include the challenges and errors that you faced and how you overcame them.</a></li>
+  </ul></li>
+  <li><a href="#final-submission" id="toc-final-submission" class="nav-link" data-scroll-target="#final-submission">Final Submission</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-theme-of-your-data-story" id="toc-what-is-the-theme-of-your-data-story" class="nav-link" data-scroll-target="#what-is-the-theme-of-your-data-story">1. What is the theme of your data story?</a></li>
+  <li><a href="#why-is-it-important-to-address-this-question" id="toc-why-is-it-important-to-address-this-question" class="nav-link" data-scroll-target="#why-is-it-important-to-address-this-question">2. Why is it important to address this question?</a></li>
+  <li><a href="#why-do-you-think-the-data-sources-that-you-have-curated-can-help-you-answer-the-question" id="toc-why-do-you-think-the-data-sources-that-you-have-curated-can-help-you-answer-the-question" class="nav-link" data-scroll-target="#why-do-you-think-the-data-sources-that-you-have-curated-can-help-you-answer-the-question">3. Why do you think the data sources that you have curated can help you answer the question?</a></li>
+  <li><a href="#what-are-the-insights-from-the-data-and-how-are-they-depicted-in-plots" id="toc-what-are-the-insights-from-the-data-and-how-are-they-depicted-in-plots" class="nav-link" data-scroll-target="#what-are-the-insights-from-the-data-and-how-are-they-depicted-in-plots">4. What are the insights from the data and how are they depicted in plots?</a></li>
+  <li><a href="#how-did-you-implement-this-entire-project-were-there-any-new-concepts-that-you-learnt-to-implement-some-aspects-of-it" id="toc-how-did-you-implement-this-entire-project-were-there-any-new-concepts-that-you-learnt-to-implement-some-aspects-of-it" class="nav-link" data-scroll-target="#how-did-you-implement-this-entire-project-were-there-any-new-concepts-that-you-learnt-to-implement-some-aspects-of-it">5. How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">W12 Submission</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jaren Ong </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 11, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="week-9" class="level2">
+<h2 class="anchored" data-anchor-id="week-9">Week 9</h2>
+<section id="what-is-the-topic-that-you-have-finalized" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-topic-that-you-have-finalized">What is the topic that you have finalized?</h3>
+<p>This project aims to assess gender inequality in India by comparing female and male labor force participation rates and education levels, shedding light on disparities in economic and educational opportunities.</p>
+</section>
+<section id="what-are-the-data-sources-that-you-have-curated-so-far" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-data-sources-that-you-have-curated-so-far">What are the data sources that you have curated so far?</h3>
+<p>I have attached the data set I curated in the csv file below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data from CSV file</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/jaren/Desktop/NM2207 Updated Data.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)  <span class="co"># View the first few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     X Male.Employment.To.Population.Ratio
+1 1990                                  NA
+2 1991                               73.61
+3 1992                               73.44
+4 1993                               73.34
+5 1994                               73.19
+6 1995                               73.65
+  Female.Employment.To.Population.Ratio
+1                                    NA
+2                                 25.93
+3                                 25.99
+4                                 26.09
+5                                 26.22
+6                                 26.52
+  Vulnerable.Employment..Male....of.Male.Employment
+1                                                NA
+2                                             80.25
+3                                             80.28
+4                                             80.31
+5                                             80.32
+6                                             80.62
+  Vulnerable.Employment..Female....of.Female.Employment
+1                                                    NA
+2                                                 90.57
+3                                                 90.65
+4                                                 90.74
+5                                                 90.83
+6                                                 90.85
+  Share.of.Female.Employment.in.Senior.and.Middle.Management
+1                                                         NA
+2                                                         NA
+3                                                         NA
+4                                                         NA
+5                                                         NA
+6                                                         NA
+  Male.Unemployment....of.Male.Labour.Force
+1                                        NA
+2                                      6.73
+3                                      6.82
+4                                      6.82
+5                                      6.87
+6                                      7.04
+  Female.Unemployment....of.Female.Labour.Force
+1                                            NA
+2                                          6.76
+3                                          6.79
+4                                          6.73
+5                                          6.72
+6                                          6.94
+  Share.of.Youth.Not.in.Education..Employment.or.Training..Male....of.Male.Youth.Population
+1                                                                                        NA
+2                                                                                        NA
+3                                                                                        NA
+4                                                                                        NA
+5                                                                                     16.31
+6                                                                                        NA
+  Share.of.Youth.Not.in.Education..Employment.or.Training..Female....of.Female.Youth.Population
+1                                                                                            NA
+2                                                                                            NA
+3                                                                                            NA
+4                                                                                            NA
+5                                                                                         62.54
+6                                                                                            NA
+  Female.LFPR Male.LFPR Female.Headed.Households
+1       27.78     79.03                       NA
+2       27.82     78.92                       NA
+3       27.88     78.81                       NA
+4       27.97     78.71                      9.2
+5       28.11     78.59                       NA
+6       28.49     79.23                       NA
+  Women.Who.were.First.Married.by.Age.15....of.Women.Aged.20.24
+1                                                            NA
+2                                                            NA
+3                                                            NA
+4                                                          17.6
+5                                                            NA
+6                                                            NA
+  Women.Who.were.First.Married.by.Age.18....of.Women.Aged.20.24
+1                                                            NA
+2                                                            NA
+3                                                            NA
+4                                                          50.2
+5                                                            NA
+6                                                            NA
+  Labour.Force..Female....of.Total.Labour.Force
+1                                         24.82
+2                                         24.88
+3                                         24.96
+4                                         25.06
+5                                         25.19
+6                                         25.29
+  Labour.Force.With.Advanced.Education..Female....of.Female.Working.age.Population
+1                                                                               NA
+2                                                                               NA
+3                                                                               NA
+4                                                                               NA
+5                                                                            36.24
+6                                                                               NA
+  Labour.Force.With.Intermediate.Education..Female....of.Female.Working.age.Population
+1                                                                                   NA
+2                                                                                   NA
+3                                                                                   NA
+4                                                                                   NA
+5                                                                                18.13
+6                                                                                   NA
+  Labour.Force.With.Basic.Education..Female....of.Female.Working.age.Population
+1                                                                            NA
+2                                                                            NA
+3                                                                            NA
+4                                                                            NA
+5                                                                         18.01
+6                                                                            NA
+  Labour.Force.With.Advanced.Education..Male....of.Male.Working.age.Population
+1                                                                           NA
+2                                                                           NA
+3                                                                           NA
+4                                                                           NA
+5                                                                        85.99
+6                                                                           NA
+  Labour.Force.With.Intermediate.Education..Male....of.Male.Working.age.Population
+1                                                                               NA
+2                                                                               NA
+3                                                                               NA
+4                                                                               NA
+5                                                                            65.96
+6                                                                               NA
+  Labour.Force.With.Basic.Education..Male....of.Male.Working.age.Population
+1                                                                        NA
+2                                                                        NA
+3                                                                        NA
+4                                                                        NA
+5                                                                     74.19
+6                                                                        NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       X        Male.Employment.To.Population.Ratio
+ Min.   :1990   Min.   :64.56                      
+ 1st Qu.:1998   1st Qu.:70.45                      
+ Median :2006   Median :72.30                      
+ Mean   :2006   Mean   :71.81                      
+ 3rd Qu.:2014   3rd Qu.:73.62                      
+ Max.   :2022   Max.   :75.97                      
+                NA's   :1                          
+ Female.Employment.To.Population.Ratio
+ Min.   :18.95                        
+ 1st Qu.:22.66                        
+ Median :26.27                        
+ Mean   :25.17                        
+ 3rd Qu.:27.27                        
+ Max.   :28.11                        
+ NA's   :1                            
+ Vulnerable.Employment..Male....of.Male.Employment
+ Min.   :72.69                                    
+ 1st Qu.:76.95                                    
+ Median :80.62                                    
+ Mean   :78.91                                    
+ 3rd Qu.:80.96                                    
+ Max.   :81.39                                    
+ NA's   :2                                        
+ Vulnerable.Employment..Female....of.Female.Employment
+ Min.   :74.88                                        
+ 1st Qu.:81.03                                        
+ Median :88.41                                        
+ Mean   :85.90                                        
+ 3rd Qu.:90.58                                        
+ Max.   :90.85                                        
+ NA's   :2                                            
+ Share.of.Female.Employment.in.Senior.and.Middle.Management
+ Min.   :12.20                                             
+ 1st Qu.:14.40                                             
+ Median :17.00                                             
+ Mean   :15.58                                             
+ 3rd Qu.:17.00                                             
+ Max.   :17.30                                             
+ NA's   :28                                                
+ Male.Unemployment....of.Male.Labour.Force
+ Min.   : 6.650                           
+ 1st Qu.: 7.430                           
+ Median : 7.895                           
+ Mean   : 7.834                           
+ 3rd Qu.: 8.262                           
+ Max.   :10.650                           
+ NA's   :1                                
+ Female.Unemployment....of.Female.Labour.Force
+ Min.   :6.070                                
+ 1st Qu.:7.090                                
+ Median :7.985                                
+ Mean   :7.820                                
+ 3rd Qu.:8.523                                
+ Max.   :8.960                                
+ NA's   :1                                    
+ Share.of.Youth.Not.in.Education..Employment.or.Training..Male....of.Male.Youth.Population
+ Min.   : 7.580                                                                           
+ 1st Qu.: 9.975                                                                           
+ Median :14.510                                                                           
+ Mean   :13.189                                                                           
+ 3rd Qu.:16.240                                                                           
+ Max.   :17.650                                                                           
+ NA's   :23                                                                               
+ Share.of.Youth.Not.in.Education..Employment.or.Training..Female....of.Female.Youth.Population
+ Min.   :43.53                                                                                
+ 1st Qu.:46.49                                                                                
+ Median :47.83                                                                                
+ Mean   :50.55                                                                                
+ 3rd Qu.:55.33                                                                                
+ Max.   :62.54                                                                                
+ NA's   :23                                                                                   
+  Female.LFPR      Male.LFPR     Female.Headed.Households
+ Min.   :20.54   Min.   :72.25   Min.   : 9.2            
+ 1st Qu.:24.77   1st Qu.:76.73   1st Qu.:10.3            
+ Median :28.11   Median :78.71   Median :14.4            
+ Mean   :27.33   Mean   :77.94   Mean   :13.2            
+ 3rd Qu.:29.69   3rd Qu.:79.29   3rd Qu.:14.6            
+ Max.   :30.52   Max.   :82.34   Max.   :17.5            
+                                 NA's   :28              
+ Women.Who.were.First.Married.by.Age.15....of.Women.Aged.20.24
+ Min.   : 4.0                                                 
+ 1st Qu.: 5.4                                                 
+ Median :13.1                                                 
+ Mean   :12.7                                                 
+ 3rd Qu.:17.6                                                 
+ Max.   :23.4                                                 
+ NA's   :28                                                   
+ Women.Who.were.First.Married.by.Age.18....of.Women.Aged.20.24
+ Min.   :22.30                                                
+ 1st Qu.:25.30                                                
+ Median :44.50                                                
+ Mean   :38.46                                                
+ 3rd Qu.:50.00                                                
+ Max.   :50.20                                                
+ NA's   :28                                                   
+ Labour.Force..Female....of.Total.Labour.Force
+ Min.   :20.99                                
+ 1st Qu.:23.54                                
+ Median :25.19                                
+ Mean   :24.79                                
+ 3rd Qu.:25.88                                
+ Max.   :26.78                                
+                                              
+ Labour.Force.With.Advanced.Education..Female....of.Female.Working.age.Population
+ Min.   :30.66                                                                   
+ 1st Qu.:32.43                                                                   
+ Median :32.90                                                                   
+ Mean   :33.27                                                                   
+ 3rd Qu.:34.45                                                                   
+ Max.   :36.24                                                                   
+ NA's   :24                                                                      
+ Labour.Force.With.Intermediate.Education..Female....of.Female.Working.age.Population
+ Min.   :14.11                                                                       
+ 1st Qu.:15.68                                                                       
+ Median :16.67                                                                       
+ Mean   :17.11                                                                       
+ 3rd Qu.:17.62                                                                       
+ Max.   :23.27                                                                       
+ NA's   :24                                                                          
+ Labour.Force.With.Basic.Education..Female....of.Female.Working.age.Population
+ Min.   :16.65                                                                
+ 1st Qu.:19.51                                                                
+ Median :22.02                                                                
+ Mean   :20.76                                                                
+ 3rd Qu.:22.68                                                                
+ Max.   :23.28                                                                
+ NA's   :24                                                                   
+ Labour.Force.With.Advanced.Education..Male....of.Male.Working.age.Population
+ Min.   :80.84                                                               
+ 1st Qu.:81.93                                                               
+ Median :83.30                                                               
+ Mean   :83.50                                                               
+ 3rd Qu.:84.87                                                               
+ Max.   :86.73                                                               
+ NA's   :24                                                                  
+ Labour.Force.With.Intermediate.Education..Male....of.Male.Working.age.Population
+ Min.   :60.36                                                                   
+ 1st Qu.:62.24                                                                   
+ Median :63.67                                                                   
+ Mean   :64.46                                                                   
+ 3rd Qu.:65.96                                                                   
+ Max.   :69.77                                                                   
+ NA's   :24                                                                      
+ Labour.Force.With.Basic.Education..Male....of.Male.Working.age.Population
+ Min.   :74.01                                                            
+ 1st Qu.:74.54                                                            
+ Median :75.65                                                            
+ Mean   :75.74                                                            
+ 3rd Qu.:76.32                                                            
+ Max.   :78.43                                                            
+ NA's   :24                                                               </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="week-10" class="level2">
+<h2 class="anchored" data-anchor-id="week-10">Week 10</h2>
+<section id="what-is-the-question-that-you-are-going-to-answer-answer-one-sentence-that-ends-with-a-question-mark-that-could-act-like-the-title-of-your-data-story" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-question-that-you-are-going-to-answer-answer-one-sentence-that-ends-with-a-question-mark-that-could-act-like-the-title-of-your-data-story">What is the question that you are going to answer? (Answer: One sentence that ends with a question mark that could act like the title of your data story),</h3>
+<p>Is gender equality getting worse in India?</p>
+</section>
+<section id="why-is-this-an-important-question-answer-3-sentences-each-of-which-has-some-evidence-e.g.-according-to-the-united-nations-to-justify-why-the-question-you-have-chosen-is-important" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-this-an-important-question-answer-3-sentences-each-of-which-has-some-evidence-e.g.-according-to-the-united-nations-to-justify-why-the-question-you-have-chosen-is-important">Why is this an important question? (Answer: 3 sentences, each of which has some evidence, e.g., “According to the United Nations…” to justify why the question you have chosen is important),</h3>
+<p>The question of whether gender equality is getting worse in India is significant due to several compelling reasons. According to the United Nations’ Human Development Index, India’s Gender Inequality Index (GII) ranks it as one of the countries with persistent gender disparities. India’s GII, according to the 2020 Human Development Report, stood at 0.501, indicating substantial gender inequality. Furthermore, evidence from the National Family Health Survey-4 (NFHS-4) shows that despite improvements in some areas, India still grapples with gender-based issues like maternal mortality, child marriage, and violence against women, underscoring the need to assess whether the situation is improving or deteriorating. Lastly, tracking changes in gender equality in India is vital as it can inform policy and program development to address disparities and promote a more inclusive and equitable society.</p>
+</section>
+<section id="which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use." class="level3">
+<h3 class="anchored" data-anchor-id="which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use.">Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use).</h3>
+<p>I currently intend to utilize all my variables to create a story on how gender inequality is evolving in India.</p>
+</section>
+</section>
+<section id="week-11" class="level2">
+<h2 class="anchored" data-anchor-id="week-11">Week 11</h2>
+<section id="list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question" class="level3">
+<h3 class="anchored" data-anchor-id="list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question">1. List the visualizations that you are going to use in your project (Answer: What are the variables that you are going to plot? How will it answer your larger question?),</h3>
+<p>The main variables that I will likely focus on will be labor force participation rate for females and males.</p>
+</section>
+<section id="how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive">2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,</h3>
+<p>I used ggplot2 to create some visualizations on how female and male LFPR have altered over time.</p>
+<p>I want to use Shiny, although I am not very sure how to do so.</p>
+</section>
+<section id="what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts">3. What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)</h3>
+<p>I will update this as my website develops.</p>
+</section>
+<section id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them." class="level3">
+<h3 class="anchored" data-anchor-id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.">Include the challenges and errors that you faced and how you overcame them.</h3>
+<p>I struggle to incorporate Shiny into my website.</p>
+</section>
+</section>
+<section id="week-12" class="level2">
+<h2 class="anchored" data-anchor-id="week-12">Week 12</h2>
+<section id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1" class="level3">
+<h3 class="anchored" data-anchor-id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1">Include the challenges and errors that you faced and how you overcame them.</h3>
+<p>Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tinying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.</p>
+<p>That being said, given that this is the first time I am creating a website, I remained unsure on how to design it in a way that looks aesthetic. I also struggled to come up with a coherent story which conveyed the main issue that my website is trying to address. I am still in the process of coming up with questions which would allow me to answer the issue of how gender inequality has evolved over time in India.</p>
+</section>
+</section>
+<section id="final-submission" class="level2">
+<h2 class="anchored" data-anchor-id="final-submission">Final Submission</h2>
+<section id="what-is-the-theme-of-your-data-story" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-theme-of-your-data-story">1. What is the theme of your data story?</h3>
+</section>
+<section id="why-is-it-important-to-address-this-question" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-it-important-to-address-this-question">2. Why is it important to address this question?</h3>
+</section>
+<section id="why-do-you-think-the-data-sources-that-you-have-curated-can-help-you-answer-the-question" class="level3">
+<h3 class="anchored" data-anchor-id="why-do-you-think-the-data-sources-that-you-have-curated-can-help-you-answer-the-question">3. Why do you think the data sources that you have curated can help you answer the question?</h3>
+</section>
+<section id="what-are-the-insights-from-the-data-and-how-are-they-depicted-in-plots" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-insights-from-the-data-and-how-are-they-depicted-in-plots">4. What are the insights from the data and how are they depicted in plots?</h3>
+</section>
+<section id="how-did-you-implement-this-entire-project-were-there-any-new-concepts-that-you-learnt-to-implement-some-aspects-of-it" class="level3">
+<h3 class="anchored" data-anchor-id="how-did-you-implement-this-entire-project-were-there-any-new-concepts-that-you-learnt-to-implement-some-aspects-of-it">5. How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it?</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
