@@ -60,7 +60,7 @@ ggplot(dataIII, aes(x = Year)) +
   geom_line(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +
   geom_line(aes(y = MaleLabourForceWithBasicEdu, color = "Male - Basic Education")) +
   geom_line(aes(y = FemaleLabourForceWithAdvancedEdu, color = "Female - Advanced Education")) + 
-  geom_line(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education")) + 
+  geom_line(aes(y = FemaleLabourForceWithIntermediateEdu, color = "Female - Intermediate Education")) +
   geom_line(aes(y = FemaleLabourForceWithBasicEdu, color = "Female - Basic Education")) +
   geom_point(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education")) +
   geom_point(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +

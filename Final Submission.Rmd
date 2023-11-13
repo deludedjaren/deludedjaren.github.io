@@ -32,7 +32,7 @@ The question of whether gender equality is getting worse in India is significant
 
 ### Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use).
 
-I will use "Female.LFPR", "Male.LFPR", "Labour.Force..Female....of.Total.Labour.Force", "MaleYouthNotInEET" and "FemaleYouthNotInEET".
+I will use "Female.LFPR", "Male.LFPR", "MaleYouthNotInEET", "FemaleYouthNotInEET", "MaleLabourForceWithAdvancedEdu", "MaleLabourForceWithIntermediateEdu", "MaleLabourForceWithBasicEdu", "FemaleLabourForceWithAdvancedEdu", "FemaleLabourForceWithIntermediateEdu", "FemaleLabourForceWithBasicEdu".
 
 ## Week 11
 
@@ -40,9 +40,7 @@ I will use "Female.LFPR", "Male.LFPR", "Labour.Force..Female....of.Total.Labour.
 
 I am going to plot Male LFPR and Female LFPR against Time to show: (1) the stark difference between male and female LFPR and (2) how LFPR for both genders have changed over time in order to answer the question of whether or not gender inequality is worsening in terms of occupational and economic opportunities.
 
-Next, I will plot the graph for proportion of females in labor force to show how female workers remain the minority over time in India, which can either be an indicator or cause of gender discrimination in India.
-
-Lastly, I will plot the difference in educational levels between males and female workers to see how males have unfair access to education when compared to their female counterparts.
+Next, I will plot the difference in educational levels between males and female workers to see how males have unfair access to education when compared to their female counterparts.
 
 ### 2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,
 
