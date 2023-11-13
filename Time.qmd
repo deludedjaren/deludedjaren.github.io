@@ -1,0 +1,111 @@
+---
+title: "Is Gender Inequality worsening?"
+---
+
+## How has LFPR changed over time?
+
+```{r, eval=TRUE,echo=FALSE}
+
+library(shiny)
+library(ggplot2)
+suppressMessages(library(dplyr))
+
+# Load dataset
+data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
+
+# Create a ggplot2 line plot for the difference over time
+ggplot(data, aes(x = X, y = Male.LFPR - Female.LFPR)) +
+  geom_line(color = "blue") +
+  labs(
+    title = "Difference in Labor Force Participation Rates Over Time",
+    x = "Year",
+    y = "Difference in Participation Rate (%)",
+    subtitle = "Positive values indicate higher Male LFPR"
+  ) +
+  theme_minimal()
+
+
+```
+
+## Gender Proportions in India's Labor Force Over Time
+
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data 
+data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
+
+# Create a ggplot2 line plot
+ggplot(data, aes(x = X, y = Labour.Force..Female....of.Total.Labour.Force)) +
+  geom_line() +
+  labs(
+    title = "Trends in Labour Force Gender Dynamics",
+    x = "Year",
+    y = "Proportion of Female Workers in Labour Force (%)"
+  ) +
+  theme_minimal()
+
+```
+
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data 
+dataII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data II.csv")
+
+# Calculate the absolute difference between Male and Female proportions of Youth not in EET
+dataII$Difference <- abs(dataII$MaleYouthNotInEET - dataII$FemaleYouthNotInEET)
+
+# Create a ggplot2 line plot for the difference over time
+ggplot(dataII, aes(x = Year, y = Difference)) +
+  geom_line(color = "#D55E00") +
+  geom_point(color = "#D55E00") +
+  labs(
+    title = "Difference in Proportion of Youth not in EET Over Time",
+    x = "Year",
+    y = "Difference in Proportion (%)",
+    subtitle = "Positive values indicate higher exclusion of female youths"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    legend.position = "none"
+  )
+
+
+
+```
+
+```{r, eval=TRUE,echo=FALSE}
+
+# Load your data
+dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
+
+# Calculate the mean of male and female education levels
+dataIII$MeanMaleEducation <- rowMeans(dataIII[, c("MaleLabourForceWithAdvancedEdu", "MaleLabourForceWithIntermediateEdu", "MaleLabourForceWithBasicEdu")], na.rm = TRUE)
+dataIII$MeanFemaleEducation <- rowMeans(dataIII[, c("FemaleLabourForceWithAdvancedEdu", "FemaleLabourForceWithIntermediateEdu", "FemaleLabourForceWithBasicEdu")], na.rm = TRUE)
+
+# Calculate the difference between mean male and mean female education levels
+dataIII$EducationDifference <- dataIII$MeanMaleEducation - dataIII$MeanFemaleEducation
+
+# Create a ggplot2 line plot for the difference over time
+ggplot(dataIII, aes(x = Year, y = EducationDifference)) +
+  geom_line(color = "#D55E00") +
+  geom_point(color = "#D55E00") +
+  labs(
+    title = "Difference in Mean Education Levels between Genders Over Time",
+    x = "Year",
+    y = "Difference in Mean Education Level",
+    subtitle = "Positive values indicate higher Male Education Level"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    legend.position = "none"
+  )
+
+
+```
+

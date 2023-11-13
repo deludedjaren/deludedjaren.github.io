@@ -6,4 +6,6 @@ title: "About"
 
 I am Jaren, year 3 business administration student.
 
+Talk about the background behind this project.
+
 <https://github.com/deludedjaren/Jaren>

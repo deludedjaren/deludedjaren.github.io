@@ -1,5 +1,5 @@
 ---
-title: "W12 Submission"
+title: "Final Submission"
 author: "Jaren Ong"
 date: "`r Sys.Date()`"
 output:
@@ -14,23 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### What is the topic that you have finalized?
 
-This project aims to assess gender inequality in India by comparing female and male labor force participation rates and education levels, shedding light on disparities in economic and educational opportunities.
+This project aims to assess gender inequality in India by analysing labor and educational statistics over time.
 
 ### What are the data sources that you have curated so far?
 
-I have attached the data set I curated in the csv file below.
-
-```{r, eval=TRUE,echo=TRUE}
-
-# Read data from CSV file
-
-data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
-
-head(data)  # View the first few rows
-
-summary(data)
-
-```
+I collected secondary data from the CEIC website, which is a website which compiles data sources from a myriad of reliable data sources such as the World Bank, the International Monetary Fund, data.gov.in and more.
 
 ## Week 10
 
@@ -44,33 +32,40 @@ The question of whether gender equality is getting worse in India is significant
 
 ### Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use).
 
-I currently intend to utilize all my variables to create a story on how gender inequality is evolving in India.
+I will use "Female.LFPR", "Male.LFPR", "Labour.Force..Female....of.Total.Labour.Force", "MaleYouthNotInEET" and "FemaleYouthNotInEET".
 
 ## Week 11
 
 ### 1. List the visualizations that you are going to use in your project (Answer: What are the variables that you are going to plot? How will it answer your larger question?),
 
-The main variables that I will likely focus on will be labor force participation rate for females and males.
+I am going to plot Male LFPR and Female LFPR against Time to show: (1) the stark difference between male and female LFPR and (2) how LFPR for both genders have changed over time in order to answer the question of whether or not gender inequality is worsening in terms of occupational and economic opportunities.
+
+Next, I will plot the graph for proportion of females in labor force to show how female workers remain the minority over time in India, which can either be an indicator or cause of gender discrimination in India.
+
+Lastly, I will plot the difference in educational levels between males and female workers to see how males have unfair access to education when compared to their female counterparts.
 
 ### 2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,
 
-I used ggplot2 to create some visualizations on how female and male LFPR have altered over time.
-
-I want to use Shiny, although I am not very sure how to do so.
+I will focus on using ggplot2 to create meaningful visualizations which can walk the user through the issue of gender inequality in India. I have made the decision not to incorporate shiny into my webpage as I feel that the plots generated are sufficient in answering the question of whether or not gender inequality is worsening in India.
 
 ### 3. What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)
 
-I will update this as my website develops.
+| Week | Concept Used + How It Was Used                                                        |
+|-------------|-----------------------------------------------------------|
+| 1    | How to use Rstudio + Using Rmarkdown                                                  |
+| 2    | Data visualization and use of ggplot2                                                 |
+| 4    | Tidying my data to ensure that it works in ggplot2                                    |
+| 7    | Creating meaningful visualizations. I mainly used geom_line to show change over time. |
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
-I struggle to incorporate Shiny into my website.
+I attempted to incorporate shiny into my webpage but was not successful. I managed to run the app in Rstudio but could not get it to work when I published it. After thorough consideration, I decided to move on without the use of shiny as I felt that it did not add significant value to my story.
 
 ## Week 12
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
-Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tinying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.
+Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tidying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.
 
 That being said, given that this is the first time I am creating a website, I remained unsure on how to design it in a way that looks aesthetic. I also struggled to come up with a coherent story which conveyed the main issue that my website is trying to address. I am still in the process of coming up with questions which would allow me to answer the issue of how gender inequality has evolved over time in India.
 

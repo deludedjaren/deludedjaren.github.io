@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jaren Ong">
-<meta name="dcterms.date" content="2023-11-11">
+<meta name="dcterms.date" content="2023-11-13">
 
-<title>proj - W12 Submission</title>
+<title>NM2207 Project - Final Submission</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">proj</span>
+    <span class="navbar-title">NM2207 Project</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,6 +85,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Analysis.html" rel="" target="">
+ <span class="menu-text">Inequality in India</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Time.html" rel="" target="">
+ <span class="menu-text">Analysis Over Time</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html" rel="" target="">
@@ -178,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">W12 Submission</h1>
+<h1 class="title">Final Submission</h1>
 </div>
 
 
@@ -195,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 11, 2023</p>
+      <p class="date">November 13, 2023</p>
     </div>
   </div>
   
@@ -209,308 +183,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="week-9">Week 9</h2>
 <section id="what-is-the-topic-that-you-have-finalized" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-the-topic-that-you-have-finalized">What is the topic that you have finalized?</h3>
-<p>This project aims to assess gender inequality in India by comparing female and male labor force participation rates and education levels, shedding light on disparities in economic and educational opportunities.</p>
+<p>This project aims to assess gender inequality in India by analysing labor and educational statistics over time.</p>
 </section>
 <section id="what-are-the-data-sources-that-you-have-curated-so-far" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-the-data-sources-that-you-have-curated-so-far">What are the data sources that you have curated so far?</h3>
-<p>I have attached the data set I curated in the csv file below.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data from CSV file</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/jaren/Desktop/NM2207 Updated Data.csv"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)  <span class="co"># View the first few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     X Male.Employment.To.Population.Ratio
-1 1990                                  NA
-2 1991                               73.61
-3 1992                               73.44
-4 1993                               73.34
-5 1994                               73.19
-6 1995                               73.65
-  Female.Employment.To.Population.Ratio
-1                                    NA
-2                                 25.93
-3                                 25.99
-4                                 26.09
-5                                 26.22
-6                                 26.52
-  Vulnerable.Employment..Male....of.Male.Employment
-1                                                NA
-2                                             80.25
-3                                             80.28
-4                                             80.31
-5                                             80.32
-6                                             80.62
-  Vulnerable.Employment..Female....of.Female.Employment
-1                                                    NA
-2                                                 90.57
-3                                                 90.65
-4                                                 90.74
-5                                                 90.83
-6                                                 90.85
-  Share.of.Female.Employment.in.Senior.and.Middle.Management
-1                                                         NA
-2                                                         NA
-3                                                         NA
-4                                                         NA
-5                                                         NA
-6                                                         NA
-  Male.Unemployment....of.Male.Labour.Force
-1                                        NA
-2                                      6.73
-3                                      6.82
-4                                      6.82
-5                                      6.87
-6                                      7.04
-  Female.Unemployment....of.Female.Labour.Force
-1                                            NA
-2                                          6.76
-3                                          6.79
-4                                          6.73
-5                                          6.72
-6                                          6.94
-  Share.of.Youth.Not.in.Education..Employment.or.Training..Male....of.Male.Youth.Population
-1                                                                                        NA
-2                                                                                        NA
-3                                                                                        NA
-4                                                                                        NA
-5                                                                                     16.31
-6                                                                                        NA
-  Share.of.Youth.Not.in.Education..Employment.or.Training..Female....of.Female.Youth.Population
-1                                                                                            NA
-2                                                                                            NA
-3                                                                                            NA
-4                                                                                            NA
-5                                                                                         62.54
-6                                                                                            NA
-  Female.LFPR Male.LFPR Female.Headed.Households
-1       27.78     79.03                       NA
-2       27.82     78.92                       NA
-3       27.88     78.81                       NA
-4       27.97     78.71                      9.2
-5       28.11     78.59                       NA
-6       28.49     79.23                       NA
-  Women.Who.were.First.Married.by.Age.15....of.Women.Aged.20.24
-1                                                            NA
-2                                                            NA
-3                                                            NA
-4                                                          17.6
-5                                                            NA
-6                                                            NA
-  Women.Who.were.First.Married.by.Age.18....of.Women.Aged.20.24
-1                                                            NA
-2                                                            NA
-3                                                            NA
-4                                                          50.2
-5                                                            NA
-6                                                            NA
-  Labour.Force..Female....of.Total.Labour.Force
-1                                         24.82
-2                                         24.88
-3                                         24.96
-4                                         25.06
-5                                         25.19
-6                                         25.29
-  Labour.Force.With.Advanced.Education..Female....of.Female.Working.age.Population
-1                                                                               NA
-2                                                                               NA
-3                                                                               NA
-4                                                                               NA
-5                                                                            36.24
-6                                                                               NA
-  Labour.Force.With.Intermediate.Education..Female....of.Female.Working.age.Population
-1                                                                                   NA
-2                                                                                   NA
-3                                                                                   NA
-4                                                                                   NA
-5                                                                                18.13
-6                                                                                   NA
-  Labour.Force.With.Basic.Education..Female....of.Female.Working.age.Population
-1                                                                            NA
-2                                                                            NA
-3                                                                            NA
-4                                                                            NA
-5                                                                         18.01
-6                                                                            NA
-  Labour.Force.With.Advanced.Education..Male....of.Male.Working.age.Population
-1                                                                           NA
-2                                                                           NA
-3                                                                           NA
-4                                                                           NA
-5                                                                        85.99
-6                                                                           NA
-  Labour.Force.With.Intermediate.Education..Male....of.Male.Working.age.Population
-1                                                                               NA
-2                                                                               NA
-3                                                                               NA
-4                                                                               NA
-5                                                                            65.96
-6                                                                               NA
-  Labour.Force.With.Basic.Education..Male....of.Male.Working.age.Population
-1                                                                        NA
-2                                                                        NA
-3                                                                        NA
-4                                                                        NA
-5                                                                     74.19
-6                                                                        NA</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       X        Male.Employment.To.Population.Ratio
- Min.   :1990   Min.   :64.56                      
- 1st Qu.:1998   1st Qu.:70.45                      
- Median :2006   Median :72.30                      
- Mean   :2006   Mean   :71.81                      
- 3rd Qu.:2014   3rd Qu.:73.62                      
- Max.   :2022   Max.   :75.97                      
-                NA's   :1                          
- Female.Employment.To.Population.Ratio
- Min.   :18.95                        
- 1st Qu.:22.66                        
- Median :26.27                        
- Mean   :25.17                        
- 3rd Qu.:27.27                        
- Max.   :28.11                        
- NA's   :1                            
- Vulnerable.Employment..Male....of.Male.Employment
- Min.   :72.69                                    
- 1st Qu.:76.95                                    
- Median :80.62                                    
- Mean   :78.91                                    
- 3rd Qu.:80.96                                    
- Max.   :81.39                                    
- NA's   :2                                        
- Vulnerable.Employment..Female....of.Female.Employment
- Min.   :74.88                                        
- 1st Qu.:81.03                                        
- Median :88.41                                        
- Mean   :85.90                                        
- 3rd Qu.:90.58                                        
- Max.   :90.85                                        
- NA's   :2                                            
- Share.of.Female.Employment.in.Senior.and.Middle.Management
- Min.   :12.20                                             
- 1st Qu.:14.40                                             
- Median :17.00                                             
- Mean   :15.58                                             
- 3rd Qu.:17.00                                             
- Max.   :17.30                                             
- NA's   :28                                                
- Male.Unemployment....of.Male.Labour.Force
- Min.   : 6.650                           
- 1st Qu.: 7.430                           
- Median : 7.895                           
- Mean   : 7.834                           
- 3rd Qu.: 8.262                           
- Max.   :10.650                           
- NA's   :1                                
- Female.Unemployment....of.Female.Labour.Force
- Min.   :6.070                                
- 1st Qu.:7.090                                
- Median :7.985                                
- Mean   :7.820                                
- 3rd Qu.:8.523                                
- Max.   :8.960                                
- NA's   :1                                    
- Share.of.Youth.Not.in.Education..Employment.or.Training..Male....of.Male.Youth.Population
- Min.   : 7.580                                                                           
- 1st Qu.: 9.975                                                                           
- Median :14.510                                                                           
- Mean   :13.189                                                                           
- 3rd Qu.:16.240                                                                           
- Max.   :17.650                                                                           
- NA's   :23                                                                               
- Share.of.Youth.Not.in.Education..Employment.or.Training..Female....of.Female.Youth.Population
- Min.   :43.53                                                                                
- 1st Qu.:46.49                                                                                
- Median :47.83                                                                                
- Mean   :50.55                                                                                
- 3rd Qu.:55.33                                                                                
- Max.   :62.54                                                                                
- NA's   :23                                                                                   
-  Female.LFPR      Male.LFPR     Female.Headed.Households
- Min.   :20.54   Min.   :72.25   Min.   : 9.2            
- 1st Qu.:24.77   1st Qu.:76.73   1st Qu.:10.3            
- Median :28.11   Median :78.71   Median :14.4            
- Mean   :27.33   Mean   :77.94   Mean   :13.2            
- 3rd Qu.:29.69   3rd Qu.:79.29   3rd Qu.:14.6            
- Max.   :30.52   Max.   :82.34   Max.   :17.5            
-                                 NA's   :28              
- Women.Who.were.First.Married.by.Age.15....of.Women.Aged.20.24
- Min.   : 4.0                                                 
- 1st Qu.: 5.4                                                 
- Median :13.1                                                 
- Mean   :12.7                                                 
- 3rd Qu.:17.6                                                 
- Max.   :23.4                                                 
- NA's   :28                                                   
- Women.Who.were.First.Married.by.Age.18....of.Women.Aged.20.24
- Min.   :22.30                                                
- 1st Qu.:25.30                                                
- Median :44.50                                                
- Mean   :38.46                                                
- 3rd Qu.:50.00                                                
- Max.   :50.20                                                
- NA's   :28                                                   
- Labour.Force..Female....of.Total.Labour.Force
- Min.   :20.99                                
- 1st Qu.:23.54                                
- Median :25.19                                
- Mean   :24.79                                
- 3rd Qu.:25.88                                
- Max.   :26.78                                
-                                              
- Labour.Force.With.Advanced.Education..Female....of.Female.Working.age.Population
- Min.   :30.66                                                                   
- 1st Qu.:32.43                                                                   
- Median :32.90                                                                   
- Mean   :33.27                                                                   
- 3rd Qu.:34.45                                                                   
- Max.   :36.24                                                                   
- NA's   :24                                                                      
- Labour.Force.With.Intermediate.Education..Female....of.Female.Working.age.Population
- Min.   :14.11                                                                       
- 1st Qu.:15.68                                                                       
- Median :16.67                                                                       
- Mean   :17.11                                                                       
- 3rd Qu.:17.62                                                                       
- Max.   :23.27                                                                       
- NA's   :24                                                                          
- Labour.Force.With.Basic.Education..Female....of.Female.Working.age.Population
- Min.   :16.65                                                                
- 1st Qu.:19.51                                                                
- Median :22.02                                                                
- Mean   :20.76                                                                
- 3rd Qu.:22.68                                                                
- Max.   :23.28                                                                
- NA's   :24                                                                   
- Labour.Force.With.Advanced.Education..Male....of.Male.Working.age.Population
- Min.   :80.84                                                               
- 1st Qu.:81.93                                                               
- Median :83.30                                                               
- Mean   :83.50                                                               
- 3rd Qu.:84.87                                                               
- Max.   :86.73                                                               
- NA's   :24                                                                  
- Labour.Force.With.Intermediate.Education..Male....of.Male.Working.age.Population
- Min.   :60.36                                                                   
- 1st Qu.:62.24                                                                   
- Median :63.67                                                                   
- Mean   :64.46                                                                   
- 3rd Qu.:65.96                                                                   
- Max.   :69.77                                                                   
- NA's   :24                                                                      
- Labour.Force.With.Basic.Education..Male....of.Male.Working.age.Population
- Min.   :74.01                                                            
- 1st Qu.:74.54                                                            
- Median :75.65                                                            
- Mean   :75.74                                                            
- 3rd Qu.:76.32                                                            
- Max.   :78.43                                                            
- NA's   :24                                                               </code></pre>
-</div>
-</div>
+<p>I collected secondary data from the CEIC website, which is a website which compiles data sources from a myriad of reliable data sources such as the World Bank, the International Monetary Fund, data.gov.in and more.</p>
 </section>
 </section>
 <section id="week-10" class="level2">
@@ -525,34 +202,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use." class="level3">
 <h3 class="anchored" data-anchor-id="which-rows-and-columns-of-the-dataset-will-be-used-to-answer-this-question-answer-actual-names-of-the-variables-in-the-dataset-that-you-plan-to-use.">Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use).</h3>
-<p>I currently intend to utilize all my variables to create a story on how gender inequality is evolving in India.</p>
+<p>I will use “Female.LFPR”, “Male.LFPR”, “Labour.Force..Female….of.Total.Labour.Force”, “MaleYouthNotInEET” and “FemaleYouthNotInEET”.</p>
 </section>
 </section>
 <section id="week-11" class="level2">
 <h2 class="anchored" data-anchor-id="week-11">Week 11</h2>
 <section id="list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question" class="level3">
 <h3 class="anchored" data-anchor-id="list-the-visualizations-that-you-are-going-to-use-in-your-project-answer-what-are-the-variables-that-you-are-going-to-plot-how-will-it-answer-your-larger-question">1. List the visualizations that you are going to use in your project (Answer: What are the variables that you are going to plot? How will it answer your larger question?),</h3>
-<p>The main variables that I will likely focus on will be labor force participation rate for females and males.</p>
+<p>I am going to plot Male LFPR and Female LFPR against Time to show: (1) the stark difference between male and female LFPR and (2) how LFPR for both genders have changed over time in order to answer the question of whether or not gender inequality is worsening in terms of occupational and economic opportunities.</p>
+<p>Next, I will plot the graph for proportion of females in labor force to show how female workers remain the minority over time in India, which can either be an indicator or cause of gender discrimination in India.</p>
+<p>Lastly, I will plot the difference in educational levels between males and female workers to see how males have unfair access to education when compared to their female counterparts.</p>
 </section>
 <section id="how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive" class="level3">
 <h3 class="anchored" data-anchor-id="how-do-you-plan-to-make-it-interactive-answer-features-of-ggplot2shinymarkdown-do-you-plan-to-use-to-make-the-story-interactive">2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,</h3>
-<p>I used ggplot2 to create some visualizations on how female and male LFPR have altered over time.</p>
-<p>I want to use Shiny, although I am not very sure how to do so.</p>
+<p>I will focus on using ggplot2 to create meaningful visualizations which can walk the user through the issue of gender inequality in India. I have made the decision not to incorporate shiny into my webpage as I feel that the plots generated are sufficient in answering the question of whether or not gender inequality is worsening in India.</p>
 </section>
 <section id="what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts" class="level3">
 <h3 class="anchored" data-anchor-id="what-concepts-incorporated-in-your-project-were-taught-in-the-course-and-which-ones-were-self-learnt-answer-create-a-table-with-topics-in-one-column-and-weeks-in-the-other-to-indicate-which-concept-taught-in-which-week-is-being-used.-leave-the-entry-of-the-week-column-empty-for-self-learnt-concepts">3. What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)</h3>
-<p>I will update this as my website develops.</p>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Concept Used + How It Was Used</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>How to use Rstudio + Using Rmarkdown</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Data visualization and use of ggplot2</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Tidying my data to ensure that it works in ggplot2</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Creating meaningful visualizations. I mainly used geom_line to show change over time.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them." class="level3">
 <h3 class="anchored" data-anchor-id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.">Include the challenges and errors that you faced and how you overcame them.</h3>
-<p>I struggle to incorporate Shiny into my website.</p>
+<p>I attempted to incorporate shiny into my webpage but was not successful. I managed to run the app in Rstudio but could not get it to work when I published it. After thorough consideration, I decided to move on without the use of shiny as I felt that it did not add significant value to my story.</p>
 </section>
 </section>
 <section id="week-12" class="level2">
 <h2 class="anchored" data-anchor-id="week-12">Week 12</h2>
 <section id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1" class="level3">
 <h3 class="anchored" data-anchor-id="include-the-challenges-and-errors-that-you-faced-and-how-you-overcame-them.-1">Include the challenges and errors that you faced and how you overcame them.</h3>
-<p>Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tinying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.</p>
+<p>Over W12, I attempted to plot ggplot2 graphs but struggled to do so for some variables due to the presence of NA values. I was not confident in tidying data in R before plotting it out. I sought help from Prof NV which allowed me to make progress as I was able to plot the graphs I wanted to answer the questions I had in mind.</p>
 <p>That being said, given that this is the first time I am creating a website, I remained unsure on how to design it in a way that looks aesthetic. I also struggled to come up with a coherent story which conveyed the main issue that my website is trying to address. I am still in the process of coming up with questions which would allow me to answer the issue of how gender inequality has evolved over time in India.</p>
 </section>
 </section>
