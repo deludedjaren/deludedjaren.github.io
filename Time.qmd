@@ -31,13 +31,13 @@ ggplot(data, aes(x = X, y = Male.LFPR - Female.LFPR)) +
 
 ```{r, eval=TRUE,echo=FALSE}
 
-# Load your data 
+# Load data 
 dataII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data II.csv")
 
 # Calculate the absolute difference between Male and Female proportions of Youth not in EET
 dataII$Difference <- abs(dataII$MaleYouthNotInEET - dataII$FemaleYouthNotInEET)
 
-# Create a ggplot2 line plot for the difference over time
+# Create ggplot2 line plot for the difference over time
 ggplot(dataII, aes(x = Year, y = Difference)) +
   geom_line(color = "#D55E00") +
   geom_point(color = "#D55E00") +
@@ -58,11 +58,12 @@ ggplot(dataII, aes(x = Year, y = Difference)) +
 
 
 ```
+
 ## Difference between Male and Female education levels over time
 
 ```{r, eval=TRUE,echo=FALSE}
 
-# Load your data
+# Load data
 dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
 
 # Calculate the mean of male and female education levels
@@ -72,7 +73,7 @@ dataIII$MeanFemaleEducation <- rowMeans(dataIII[, c("FemaleLabourForceWithAdvanc
 # Calculate the difference between mean male and mean female education levels
 dataIII$EducationDifference <- dataIII$MeanMaleEducation - dataIII$MeanFemaleEducation
 
-# Create a ggplot2 line plot for the difference over time
+# Create ggplot2 line plot for the difference over time
 ggplot(dataIII, aes(x = Year, y = EducationDifference)) +
   geom_line(color = "#D55E00") +
   geom_point(color = "#D55E00") +
@@ -94,4 +95,5 @@ ggplot(dataIII, aes(x = Year, y = EducationDifference)) +
 ```
 
 ### Has Gender Inequality worsened?
+
 Through analysis of data from 1990 to 2022, I cannot conclude that gender inequality has worsened over time. Whilst gender inequality remains an issue for India, the above data shows that the economic gap between males and females is reducing as the gap between female LFPR and male LFPR has generally reduced over time. Furthermore, a much larger proportion of female youths now have access to education, employment or training, with the gender gap decreasing from 43% in 1990 to 29% in 2022. Lastly, The average education level of the female worker has seen growth against the average male worker. The educational gap between males and females has decreased from 56% in 2000 to less than 50% in 2022. Whilst gender inequality has improved over time, the improvement can be considered to be minimal, with the gender gap still being very wide, as seen in the recent WEF report which ranked India at 135 out of 146 countries in the Global Gender Gap Index.

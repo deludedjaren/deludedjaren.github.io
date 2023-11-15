@@ -15,7 +15,7 @@ suppressMessages(library(dplyr))
 # Load dataset
 data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
 
-# Create a ggplot2 line plot
+# Create ggplot2 line plot
 ggplot(data, aes(x = X)) +
   geom_line(aes(y = Male.LFPR, color = "Male Labor Force Participation Rate")) + 
   geom_line(aes(y = Female.LFPR, color = "Female Labor Force Participation Rate")) +
@@ -31,10 +31,10 @@ ggplot(data, aes(x = X)) +
 
 ```{r, eval=TRUE,echo=FALSE}
 
-# Load your data 
+# Load data
 dataII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data II.csv")
 
-# Create a ggplot2 line plot
+# Create ggplot2 line plot
 ggplot(dataII, aes(x = Year)) +
   geom_line(aes(y = MaleYouthNotInEET, color = "Male Youth not in Education, Employment or Training")) + 
   geom_line(aes(y = FemaleYouthNotInEET, color = "Female Youth not in Education, Employment or Training")) +
@@ -51,10 +51,10 @@ ggplot(dataII, aes(x = Year)) +
 
 ```{r, eval=TRUE,echo=FALSE}
 
-# Load your data
+# Load data
 dataIII <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data III.csv")
 
-# Create a ggplot2 line plot with points and enhanced styling
+# Create ggplot2 line plot
 ggplot(dataIII, aes(x = Year)) +
   geom_line(aes(y = MaleLabourForceWithAdvancedEdu, color = "Male - Advanced Education")) +
   geom_line(aes(y = MaleLabourForceWithIntermediateEdu, color = "Male - Intermediate Education")) +
