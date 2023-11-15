@@ -44,18 +44,19 @@ Next, I will plot the difference in educational levels between males and female 
 
 ### 2. How do you plan to make it interactive? (Answer: features of ggplot2/shiny/markdown do you plan to use to make the story interactive) ,
 
-I will focus on using ggplot2 to create meaningful visualizations which can walk the user through the issue of gender inequality in India. I have made the decision not to incorporate shiny into my webpage as I feel that the plots generated are sufficient in answering the question of whether or not gender inequality is worsening in India.
+I will focus on using ggplot2 to create meaningful visualizations which can walk the user through the issue of gender inequality in India. I incorporated shiny into my male vs female LFPR plot which allows the user to find the difference in gender LFPR at any given year to highlight how gender inequality has changed over time.
 
 ### 3. What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Answer: Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)
 
 | Week | Concept Used + How It Was Used                                                        |
-|------------|------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | 1    | How to use Rstudio + Using Rmarkdown                                                  |
 | 2    | Data visualization and use of ggplot2                                                 |
 | 4    | Tidying my data to ensure that it works in ggplot2                                    |
 | 7    | Creating meaningful visualizations. I mainly used geom_line to show change over time. |
 |      | I used scale_color_manual to adjust color of my geom_lines                            |
 |      | I used rowMeans function to find mean of row                                          |
+|      | Applying shiny into my webpage                                                        |
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
