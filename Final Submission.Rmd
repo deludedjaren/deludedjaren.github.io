@@ -56,7 +56,6 @@ I will focus on using ggplot2 to create meaningful visualizations which can walk
 | 7    | Creating meaningful visualizations. I mainly used geom_line to show change over time. |
 |      | I used scale_color_manual to adjust color of my geom_lines                            |
 |      | I used rowMeans function to find mean of row                                          |
-|      |                                                                                       |
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
