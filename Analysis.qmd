@@ -24,7 +24,11 @@ ggplot(data, aes(x = X)) +
     x = "Year",
     y = "Labor Force Participation Rate (%)"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    legend.position = "bottom"
+    )
+
 ```
 
 ## Male vs Female Youth Exclusion from Education, Employment or Training
@@ -43,7 +47,10 @@ ggplot(dataII, aes(x = Year)) +
     x = "Year",
     y = "Youth not in Education, Employment or Training (%)"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    legend.position = "bottom"
+    )
 
 
 ```

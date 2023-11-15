@@ -15,7 +15,8 @@ data <- read.csv("/Users/jaren/Desktop/NM2207 Updated Data.csv")
 
 # Create a ggplot2 line plot for the difference over time
 ggplot(data, aes(x = X, y = Male.LFPR - Female.LFPR)) +
-  geom_line(color = "blue") +
+  geom_line(color = "#D55E00") +
+  geom_point(color = "#D55E00") +
   labs(
     title = "Difference in Labor Force Participation Rates Over Time",
     x = "Year",
