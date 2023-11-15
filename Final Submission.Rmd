@@ -59,7 +59,7 @@ I will focus on using ggplot2 to create meaningful visualizations which can walk
 
 ### Include the challenges and errors that you faced and how you overcame them.
 
-I attempted to incorporate shiny into my webpage but was not successful. I managed to run the app in Rstudio but could not get it to work when I published it. After thorough consideration, I decided to move on without the use of shiny as I felt that it did not add significant value to my story.
+I attempted to incorporate shiny into my webpage but was not successful. I managed to run the app in Rstudio but could not get it to work when I published it. I consulted our TAs and my friends to create a workable interactive component in my webpage.
 
 ## Week 12
 
